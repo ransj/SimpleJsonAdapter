@@ -33,7 +33,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * An easy adapter to map static data to views defined in an XML file. You can specify the data
@@ -277,7 +276,7 @@ public class SimpleJsonAdapter extends BaseAdapter implements Filterable {
      *
      * @see #setViewImage(android.widget.ImageView, String)
      */
-    public void setViewImage(ImageView v, int value) {
+    private void setViewImage(ImageView v, int value) {
         v.setImageResource(value);
     }
 
@@ -298,7 +297,7 @@ public class SimpleJsonAdapter extends BaseAdapter implements Filterable {
      *
      * @see #setViewImage(android.widget.ImageView, int)
      */
-    public void setViewImage(ImageView v, String value) {
+    private void setViewImage(ImageView v, String value) {
         try {
             v.setImageResource(Integer.parseInt(value));
         } catch (NumberFormatException nfe) {
@@ -314,7 +313,7 @@ public class SimpleJsonAdapter extends BaseAdapter implements Filterable {
      * @param v TextView to receive text
      * @param text the text to be set for the TextView
      */
-    public void setViewText(TextView v, String text) {
+    private void setViewText(TextView v, String text) {
         v.setText(text);
     }
 
