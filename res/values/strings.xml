@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">SimpleJsonAdapter</string>
+    <string name="file_type_directory">Directory</string>
+    <string name="file_type_file">File</string>
+
+</resources>
