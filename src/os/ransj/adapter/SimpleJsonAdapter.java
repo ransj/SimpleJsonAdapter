@@ -28,6 +28,7 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -93,6 +94,38 @@ public class SimpleJsonAdapter extends BaseAdapter implements Filterable {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    /**
+     * Constructor
+     *
+     * @param context The context where the View associated with this SimpleJsonAdapter is running
+     * @param data A List of Maps. Each entry in the List corresponds to one row in the list. The
+     *        Maps contain the data for each row, and should include all the entries specified in
+     *        "from"
+     * @param resource Resource identifier of a view layout that defines the views for this list
+     *        item. The layout file should include at least those named views defined in "to"
+     * @param from A list of column names that will be added to the Map associated with each
+     *        item.
+     * @param to The views that should display column in the "from" parameter. These should all be
+     *        TextViews. The first N views in this list are given the values of the first N columns
+     *        in the from parameter.
+     */
+    public SimpleJsonAdapter(Context context, JSONArray data,
+                             int resource, String[] from, int[] to) {
+        mData = array2List(data);
+        mResource = mDropDownResource = resource;
+        mFrom = from;
+        mTo = to;
+        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    private List<JSONObject> array2List(JSONArray array) {
+        List<JSONObject> result = new ArrayList<JSONObject>();
+        int len = array.length();
+        for (int i = 0; i < len; i++) {
+            result.add(array.optJSONObject(i));
+        }
+        return result;
+    }
     
     /**
      * @see android.widget.Adapter#getCount()
