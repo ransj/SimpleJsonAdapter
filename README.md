@@ -15,3 +15,5 @@ public SimpleJsonAdapter(Context context, List<? extends JSONObject> data, int r
 or
 
 public SimpleJsonAdapter(Context context, JSONArray data,int resource, String[] from, int[] to)
+
+also, you can use setViewBinder to meet more flexable needs
