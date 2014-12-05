@@ -67,6 +67,8 @@ public class SimpleJsonAdapterDemo extends ListActivity {
             File parent = file.getParentFile();
             if (parent != null && parent.exists()) {
                 jump2NewFile(new File(mPathRoot).getParentFile());
+            } else {
+                finish();
             }
             return true;
         }
@@ -79,7 +81,6 @@ public class SimpleJsonAdapterDemo extends ListActivity {
             data.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             data.putExtra(EXTRA_PATH_ROOT, file.getAbsolutePath());
             startActivity(data);
-
         }
     }
 
